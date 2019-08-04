@@ -41,19 +41,55 @@ namespace biblioteca.Models
         {
             StringBuilder sqlQuery = new StringBuilder();
             SqlCommand comando = new SqlCommand();
-            int resultado = 0;
             try
             {
                 sqlQuery.Append(" insert into socios values(@nombre, @direccion, @fiable) ");
                 comando.Parameters.Add("@nombre", SqlDbType.NVarChar).Value = nombre;
                 comando.Parameters.Add("@direccion", SqlDbType.NVarChar).Value = direccion;
                 comando.Parameters.Add("@fiable", SqlDbType.Int).Value = fiable;
-                resultado = objcapaconexion.Insertar(sqlQuery, comando);
+                objcapaconexion.Insertar(sqlQuery, comando);
             }
             catch (Exception)
             {
 
                 throw new Exception("Error al insertar socio");
+            }
+        }
+
+        public void borrarsocio(int id)
+        {
+            StringBuilder sqlQuery = new StringBuilder();
+            SqlCommand comando = new SqlCommand();
+            try
+            {
+                sqlQuery.Append(" delete from socios where idsocio = @idsocio ");
+                comando.Parameters.Add("@idsocio", SqlDbType.Int).Value = id;
+                objcapaconexion.Insertar(sqlQuery, comando);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al borrar socio");
+            }
+        }
+
+        public void updatesocio(int id, string nombre, string direccion, int fiable)
+        {
+            StringBuilder sqlQuery = new StringBuilder();
+            SqlCommand comando = new SqlCommand();
+            try
+            {
+                sqlQuery.Append(" update socios set nombre=@nombre, direccion=@direccion, fiable=@fiable where idsocio=@idsocio ");
+                comando.Parameters.Add("@idsocio", SqlDbType.Int).Value = idsocio;
+                comando.Parameters.Add("@nombre", SqlDbType.NVarChar).Value = nombre;
+                comando.Parameters.Add("@direccion", SqlDbType.NVarChar).Value = direccion;
+                comando.Parameters.Add("@fiable", SqlDbType.Int).Value = fiable;
+                objcapaconexion.Insertar(sqlQuery, comando);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al actualizar socio");
             }
         }
     }

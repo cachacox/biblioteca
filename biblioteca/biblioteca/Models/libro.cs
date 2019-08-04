@@ -41,7 +41,6 @@ namespace biblioteca.Models
         public void insertarlibro(string titulo, string autor, int disp, string localizacion, string signatura) {
             StringBuilder sqlQuery = new StringBuilder();
             SqlCommand comando = new SqlCommand();
-            int resultado = 0;
             try
             {
                 sqlQuery.Append(" insert into libros values(@titulo, @autor, @disp, @localizacion, @signatura) ");
@@ -50,11 +49,48 @@ namespace biblioteca.Models
                 comando.Parameters.Add("@disp", SqlDbType.Int).Value = disp;
                 comando.Parameters.Add("@localizacion", SqlDbType.NVarChar).Value = localizacion;
                 comando.Parameters.Add("@signatura", SqlDbType.NVarChar).Value = signatura;
-                resultado = objcapaconexion.Insertar(sqlQuery, comando);
+                objcapaconexion.Insertar(sqlQuery, comando);
             }
             catch (Exception)
             {
                 throw new Exception("Error al insertar libro");
+            }
+        }
+
+        public void borrarlibro(int id) {
+            StringBuilder sqlQuery = new StringBuilder();
+            SqlCommand comando = new SqlCommand();
+            try
+            {
+                sqlQuery.Append(" delete from libros where idlibro = @idlibro ");
+                comando.Parameters.Add("@idlibro", SqlDbType.Int).Value = id;
+                objcapaconexion.Insertar(sqlQuery, comando);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al borrar libro");
+            }
+        }
+
+        public void updatelibro(int id, string titulo, string autor, int disp, string localizacion, string signatura)
+        {
+            StringBuilder sqlQuery = new StringBuilder();
+            SqlCommand comando = new SqlCommand();
+            try
+            {
+                sqlQuery.Append(" update libros set titulo=@titulo, autor=@autor, disponible=@disponible, localizacion=@localizacion, signatura=@signatura where idlibro=@idlibro ");
+                comando.Parameters.Add("@idlibro", SqlDbType.Int).Value = id;
+                comando.Parameters.Add("@titulo", SqlDbType.NVarChar).Value = titulo;
+                comando.Parameters.Add("@autor", SqlDbType.NVarChar).Value = autor;
+                comando.Parameters.Add("@disponible", SqlDbType.Int).Value = disp;
+                comando.Parameters.Add("@localizacion", SqlDbType.NVarChar).Value = localizacion;
+                comando.Parameters.Add("@signatura", SqlDbType.NVarChar).Value = signatura;
+                objcapaconexion.Insertar(sqlQuery, comando);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al actualizar libro");
             }
         }
     }
