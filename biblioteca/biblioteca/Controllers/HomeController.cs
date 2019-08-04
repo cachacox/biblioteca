@@ -46,17 +46,27 @@ namespace biblioteca.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Socio(string valor)
-        {
-            switch (valor)
-            {
-                case "1":
-                    socioWS ws = new socioWS();
-                    ws.leertabla();
-                    break;
-            }
-            return View();
-        }
+        //[HttpPost]
+        //public ActionResult Socio(string valor)
+        //{
+        //    switch (valor)
+        //    {
+        //        case "1":
+        //            socioWS ws = new socioWS();
+        //            ws.leertabla();
+        //            break;
+        //    }
+        //    return View();
+        //}
     }
+
+
+    ////[WebMethod]
+    ////public DataSet leertabla()
+    ////{
+    ////    DataSet tabla = new DataSet();
+    ////    libro objlibro = new libro();
+    ////    tabla = objlibro.consultalibro(1);
+    ////    return tabla;
+    ////}
 }

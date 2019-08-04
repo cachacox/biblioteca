@@ -127,7 +127,6 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="socioWS.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -141,10 +140,6 @@
     <Compile Include="Models\prestamo.cs" />
     <Compile Include="Models\socio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="socioWS.asmx.cs">
-      <DependentUpon>socioWS.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
