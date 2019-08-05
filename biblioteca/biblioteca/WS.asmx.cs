@@ -26,12 +26,35 @@ namespace biblioteca
         }
 
         [WebMethod]
-        public DataSet leertabla()
+        public DataSet consultalibro(int id)
         {
             DataSet tabla = new DataSet();
             libro objlibro = new libro();
-            tabla = objlibro.consultalibro(1);
+            tabla = objlibro.consultalibro(id);
             return tabla;
+        }
+
+        [WebMethod]
+        public DataSet consultasocio(int id)
+        {
+            DataSet tabla = new DataSet();
+            socio objsocio = new socio();
+            tabla = objsocio.consultasocio(id);
+            return tabla;
+        }
+
+        [WebMethod]
+        public void insertarsocio(string nombre, string direccion)
+        {
+            socio objsocio = new socio();
+            objsocio.insertarsocio(nombre, direccion, 1);
+        }
+
+        [WebMethod]
+        public void eliminarsocio(int id)
+        {
+            socio objsocio = new socio();
+            objsocio.borrarsocio(id);
         }
     }
 }

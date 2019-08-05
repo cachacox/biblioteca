@@ -16,26 +16,46 @@ namespace biblioteca.Models
         public string direccion { get; set; }
         public int fiable { get; set; }
 
-        public DataTable consultasocio(int id)
+        public DataSet consultasocio(int id)
         {
-            StringBuilder sqlQuery = new StringBuilder();
-            SqlCommand comando = new SqlCommand();
-            DataTable tablasocio = new DataTable();
             try
             {
-                sqlQuery.Append(" Select * from socios where idsocio = @idsocio ");
-                if (id > 0)
-                {
-                    comando.Parameters.Add("@idsocio", SqlDbType.Int).Value = id;
-                    tablasocio = objcapaconexion.EjecutarConsulta(sqlQuery, comando);
-                }
-                return tablasocio;
+                DataSet ds = new DataSet();
+                SqlConnection con = new SqlConnection("Data Source=proyectop5.database.windows.net;Initial Catalog=biblioteca;Persist Security Info=True;User ID=ccqp5;Password=Zaq12wsx");
+                con.Open();
+                SqlCommand sql = new SqlCommand(" Select * from socios where idsocio = @idsocio ", con);
+                sql.Parameters.Add("@idsocio", SqlDbType.Int).Value = id;
+                SqlDataAdapter da = new SqlDataAdapter(sql);
+                da.Fill(ds);
+                return ds;
             }
             catch (Exception)
             {
+
                 throw new Exception("Error en la consulta");
             }
         }
+
+        //public DataTable consultasocio(int id)
+        //{
+        //    StringBuilder sqlQuery = new StringBuilder();
+        //    SqlCommand comando = new SqlCommand();
+        //    DataTable tablasocio = new DataTable();
+        //    try
+        //    {
+        //        sqlQuery.Append(" Select * from socios where idsocio = @idsocio ");
+        //        if (id > 0)
+        //        {
+        //            comando.Parameters.Add("@idsocio", SqlDbType.Int).Value = id;
+        //            tablasocio = objcapaconexion.EjecutarConsulta(sqlQuery, comando);
+        //        }
+        //        return tablasocio;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw new Exception("Error en la consulta");
+        //    }
+        //}
 
         public void insertarsocio(string nombre, string direccion, int fiable)
         {

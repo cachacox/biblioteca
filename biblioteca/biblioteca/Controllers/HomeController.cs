@@ -1,5 +1,7 @@
-﻿using System;
+﻿using biblioteca.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -46,27 +48,32 @@ namespace biblioteca.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Socio(string valor)
-        //{
-        //    switch (valor)
-        //    {
-        //        case "1":
-        //            socioWS ws = new socioWS();
-        //            ws.leertabla();
-        //            break;
-        //    }
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult Socio(socio socio, string valor)
+        {
+            switch (valor)
+            {
+                case "Buscar":
+                    ServiceReference1.WSSoapClient ws = new ServiceReference1.WSSoapClient();
+                    if (socio.idsocio > 0)
+                    {
+                        DataSet dts = new DataSet();
+                        int intsocio = socio.idsocio;
+                        dts = ws.consultasocio(intsocio);
+                        return View();
+                    }
+                    break;
+                case "Insertar":
+                    ServiceReference1.WSSoapClient ws1 = new ServiceReference1.WSSoapClient();
+                    ws1.insertarsocio(socio.nombre, socio.direccion);
+                    break;
+                case "Eliminar":
+                    ServiceReference1.WSSoapClient ws2 = new ServiceReference1.WSSoapClient();
+                    int intsocio1 = socio.idsocio;
+                    ws2.eliminarsocio(intsocio1);
+                    break;
+            }
+            return View();
+        }
     }
-
-
-    ////[WebMethod]
-    ////public DataSet leertabla()
-    ////{
-    ////    DataSet tabla = new DataSet();
-    ////    libro objlibro = new libro();
-    ////    tabla = objlibro.consultalibro(1);
-    ////    return tabla;
-    ////}
 }

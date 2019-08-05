@@ -1,4 +1,3 @@
-C:\proyectop5\biblioteca\biblioteca\biblioteca\obj\Debug\biblioteca.csprojResolveAssemblyReference.cache
 C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\ApplicationInsights.config
 C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\roslyn\csc.exe
 C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -44,3 +43,11 @@ C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Helpers.xml
 C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Mvc.xml
 C:\proyectop5\biblioteca\biblioteca\biblioteca\obj\Debug\biblioteca.dll
 C:\proyectop5\biblioteca\biblioteca\biblioteca\obj\Debug\biblioteca.pdb
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\Newtonsoft.Json.dll
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Net.Http.Formatting.dll
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Http.dll
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Http.WebHost.dll
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\Newtonsoft.Json.xml
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Net.Http.Formatting.xml
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Http.xml
+C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Http.WebHost.xml
