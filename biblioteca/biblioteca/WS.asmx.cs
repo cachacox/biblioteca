@@ -51,6 +51,13 @@ namespace biblioteca
         }
 
         [WebMethod]
+        public void insertarprestamo(int libro, int socio)
+        {
+            prestamo objprestamo = new prestamo();
+            objprestamo.insertarprestamo(libro, socio);
+        }
+
+        [WebMethod]
         public void insertalibro(string titulo, string autor, int dispo, string localiz, string signa)
         {
             libro objlibro = new libro();
@@ -62,6 +69,20 @@ namespace biblioteca
         {
             socio objsocio = new socio();
             objsocio.borrarsocio(id);
+        }
+
+        [WebMethod]
+        public void eliminarprestamo(int id)
+        {
+            prestamo objprestamo = new prestamo();
+            objprestamo.borrarprestamo(id);
+        }
+
+        [WebMethod]
+        public void eliminarlibro(int id)
+        {
+            libro objlibro = new libro();
+            objlibro.borrarlibro(id);
         }
     }
 }

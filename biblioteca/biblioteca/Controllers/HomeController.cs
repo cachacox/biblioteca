@@ -19,6 +19,39 @@ namespace biblioteca.Controllers
         }
 
         [HttpGet]
+        public ActionResult comprobarSocio()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult gestionarlibro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult gestionarprestamo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult gestionarlibro(string valor, libro libr)
+        {
+            switch (valor)
+            {
+                case "Insertar":
+                    ws.insertalibro(libr.titulo, libr.autor, 1, libr.localizacion, libr.signatura);
+                    break;
+                case "Eliminar":
+                    ws.eliminarlibro(libr.idlibro);
+                    break;
+            }
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Socio()
         {
             return View();
@@ -31,6 +64,32 @@ namespace biblioteca.Controllers
         [HttpGet]
         public ActionResult Usuario()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult comprobarSocio(socio soc)
+        {
+            DataSet dts = new DataSet();
+            int intsocio = soc.idsocio;
+            dts = ws.consultasocio(intsocio);
+            socio.tblsocio = dts.Tables[0];
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Bibliotecario(string valor)
+        {
+            switch (valor)
+            {
+                case "Comprobar Socio":
+                    socio soc = new socio();
+                    return RedirectToAction("comprobarSocio");
+                case "Gestionar Libro":
+                    return RedirectToAction("gestionarlibro");
+                case "Gestionar Préstamo":
+                    return RedirectToAction("gestionarprestamo");
+            }
             return View();
         }
 
@@ -64,7 +123,7 @@ namespace biblioteca.Controllers
                         return View();
                     }
                     break;
-                case "Insertar":                    
+                case "Insertar":
                     ws.insertarsocio(socio.nombre, socio.direccion);
                     break;
                 case "Eliminar":
@@ -81,7 +140,22 @@ namespace biblioteca.Controllers
             DataSet dts = new DataSet();
             int intlibro = libro.idlibro;
             dts = ws.consultalibro(intlibro);
-            return View();           
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult gestionarprestamo(string valor, prestamo prest)
+        {
+            switch (valor)
+            {
+                case "Insertar":
+                    ws.insertarprestamo(prest.idlibro, prest.idsocio);
+                    break;
+                case "Eliminar":
+                    ws.eliminarprestamo(prest.idlibro);
+                    break;
+            }
+            return View();
         }
     }
 }

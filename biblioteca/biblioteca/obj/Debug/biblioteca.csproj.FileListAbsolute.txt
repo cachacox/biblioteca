@@ -51,4 +51,3 @@ C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\Newtonsoft.Json.xml
 C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Net.Http.Formatting.xml
 C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Http.xml
 C:\proyectop5\biblioteca\biblioteca\biblioteca\bin\System.Web.Http.WebHost.xml
-C:\proyectop5\biblioteca\biblioteca\biblioteca\obj\Debug\biblioteca.csprojResolveAssemblyReference.cache

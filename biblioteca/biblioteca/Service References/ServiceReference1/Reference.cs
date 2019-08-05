@@ -44,12 +44,40 @@ namespace biblioteca.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarsocio", ReplyAction="*")]
         System.Threading.Tasks.Task insertarsocioAsync(string nombre, string direccion);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarprestamo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void insertarprestamo(int libro, int socio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarprestamo", ReplyAction="*")]
+        System.Threading.Tasks.Task insertarprestamoAsync(int libro, int socio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertalibro", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void insertalibro(string titulo, string autor, int dispo, string localiz, string signa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertalibro", ReplyAction="*")]
+        System.Threading.Tasks.Task insertalibroAsync(string titulo, string autor, int dispo, string localiz, string signa);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarsocio", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void eliminarsocio(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarsocio", ReplyAction="*")]
         System.Threading.Tasks.Task eliminarsocioAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarprestamo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void eliminarprestamo(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarprestamo", ReplyAction="*")]
+        System.Threading.Tasks.Task eliminarprestamoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarlibro", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void eliminarlibro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarlibro", ReplyAction="*")]
+        System.Threading.Tasks.Task eliminarlibroAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,12 +139,44 @@ namespace biblioteca.ServiceReference1 {
             return base.Channel.insertarsocioAsync(nombre, direccion);
         }
         
+        public void insertarprestamo(int libro, int socio) {
+            base.Channel.insertarprestamo(libro, socio);
+        }
+        
+        public System.Threading.Tasks.Task insertarprestamoAsync(int libro, int socio) {
+            return base.Channel.insertarprestamoAsync(libro, socio);
+        }
+        
+        public void insertalibro(string titulo, string autor, int dispo, string localiz, string signa) {
+            base.Channel.insertalibro(titulo, autor, dispo, localiz, signa);
+        }
+        
+        public System.Threading.Tasks.Task insertalibroAsync(string titulo, string autor, int dispo, string localiz, string signa) {
+            return base.Channel.insertalibroAsync(titulo, autor, dispo, localiz, signa);
+        }
+        
         public void eliminarsocio(int id) {
             base.Channel.eliminarsocio(id);
         }
         
         public System.Threading.Tasks.Task eliminarsocioAsync(int id) {
             return base.Channel.eliminarsocioAsync(id);
+        }
+        
+        public void eliminarprestamo(int id) {
+            base.Channel.eliminarprestamo(id);
+        }
+        
+        public System.Threading.Tasks.Task eliminarprestamoAsync(int id) {
+            return base.Channel.eliminarprestamoAsync(id);
+        }
+        
+        public void eliminarlibro(int id) {
+            base.Channel.eliminarlibro(id);
+        }
+        
+        public System.Threading.Tasks.Task eliminarlibroAsync(int id) {
+            return base.Channel.eliminarlibroAsync(id);
         }
     }
 }

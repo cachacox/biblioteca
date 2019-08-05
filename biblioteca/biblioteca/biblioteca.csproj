@@ -189,6 +189,9 @@
     <Content Include="Views\Home\Socio.cshtml" />
     <Content Include="Views\Home\Bibliotecario.cshtml" />
     <Content Include="Views\Home\Usuario.cshtml" />
+    <Content Include="Views\Home\comprobarSocio.cshtml" />
+    <Content Include="Views\Home\gestionarlibro.cshtml" />
+    <Content Include="Views\Home\gestionarprestamo.cshtml" />
     <None Include="Service References\ServiceReference1\WS.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

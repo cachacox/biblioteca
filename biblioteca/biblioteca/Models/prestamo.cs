@@ -52,12 +52,14 @@ namespace biblioteca.Models
             }
         }
 
-        public void insertarprestamo(int id, int socio, DateTime fecha)
+        public void insertarprestamo(int id, int socio)
         {
             StringBuilder sqlQuery = new StringBuilder();
             SqlCommand comando = new SqlCommand();
             try
             {
+                DateTime fecha = new DateTime();
+                fecha = DateTime.Today;
                 sqlQuery.Append(" insert into prestamos values(@id, @socio, @fecha) ");
                 comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 comando.Parameters.Add("@socio", SqlDbType.Int).Value = socio;

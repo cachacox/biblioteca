@@ -20,9 +20,10 @@
                 <form method="post">
                     <label for="exampleInputEmail1">Busqueda</label>
                     @Html.TextBoxFor(x => x.idsocio, new { @class = "form-control" })
-                    <input style="display:block;margin:0 auto" name="valor" type="submit" value="Buscar" />
+                    <input style="display:block;margin:0 auto" name="valor" type="submit" value="Buscar" />                    
                 </form>
             </div>
+            @Html.ValidationSummary()
             <div class="col-md-4">
                 <form method="post">
                     <label for="exampleInputEmail1">Insertar</label>
@@ -39,6 +40,7 @@
                     <input style="display:block;margin:0 auto" name="valor" type="submit" value="Insertar" />
                 </form>
             </div>
+            @Html.ValidationSummary()
             <div class="col-md-4">
                 <form method="post">
                     <label for="exampleInputEmail1">Eliminar</label>

@@ -37,27 +37,6 @@ namespace biblioteca.Models
             }
         }
 
-        //public DataTable consultasocio(int id)
-        //{
-        //    StringBuilder sqlQuery = new StringBuilder();
-        //    SqlCommand comando = new SqlCommand();
-        //    DataTable tablasocio = new DataTable();
-        //    try
-        //    {
-        //        sqlQuery.Append(" Select * from socios where idsocio = @idsocio ");
-        //        if (id > 0)
-        //        {
-        //            comando.Parameters.Add("@idsocio", SqlDbType.Int).Value = id;
-        //            tablasocio = objcapaconexion.EjecutarConsulta(sqlQuery, comando);
-        //        }
-        //        return tablasocio;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw new Exception("Error en la consulta");
-        //    }
-        //}
-
         public void insertarsocio(string nombre, string direccion, int fiable)
         {
             StringBuilder sqlQuery = new StringBuilder();
