@@ -51,6 +51,13 @@ namespace biblioteca
         }
 
         [WebMethod]
+        public void insertalibro(string titulo, string autor, int dispo, string localiz, string signa)
+        {
+            libro objlibro = new libro();
+            objlibro.insertarlibro(titulo, autor, dispo, localiz, signa);
+        }
+
+        [WebMethod]
         public void eliminarsocio(int id)
         {
             socio objsocio = new socio();

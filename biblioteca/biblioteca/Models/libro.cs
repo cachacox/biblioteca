@@ -17,6 +17,7 @@ namespace biblioteca.Models
         public int disponible { get; set; }
         public string localizacion { get; set; }
         public string signatura { get; set; }
+        public static DataTable tbllibro { get; set; }
 
         public DataSet consultalibro(int id)
         {

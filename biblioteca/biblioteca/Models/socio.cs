@@ -15,6 +15,7 @@ namespace biblioteca.Models
         public string nombre { get; set; }
         public string direccion { get; set; }
         public int fiable { get; set; }
+        public static DataTable tblsocio { get; set; }
 
         public DataSet consultasocio(int id)
         {

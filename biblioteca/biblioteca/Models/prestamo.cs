@@ -14,6 +14,7 @@ namespace biblioteca.Models
         public int idlibro { get; set; }
         public int idsocio { get; set; }
         public DateTime fecha { get; set; }
+        public static DataTable tblprestamo { get; set; }
 
         public DataTable consultaprestamo(int? id, int? idsocio)
         {

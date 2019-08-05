@@ -11,6 +11,7 @@ namespace biblioteca.Controllers
 {
     public class HomeController : Controller
     {
+        ServiceReference1.WSSoapClient ws = new ServiceReference1.WSSoapClient();
         // GET: Home
         public ActionResult Index()
         {
@@ -54,26 +55,33 @@ namespace biblioteca.Controllers
             switch (valor)
             {
                 case "Buscar":
-                    ServiceReference1.WSSoapClient ws = new ServiceReference1.WSSoapClient();
                     if (socio.idsocio > 0)
                     {
                         DataSet dts = new DataSet();
                         int intsocio = socio.idsocio;
                         dts = ws.consultasocio(intsocio);
+                        socio.tblsocio = dts.Tables[0];
                         return View();
                     }
                     break;
-                case "Insertar":
-                    ServiceReference1.WSSoapClient ws1 = new ServiceReference1.WSSoapClient();
-                    ws1.insertarsocio(socio.nombre, socio.direccion);
+                case "Insertar":                    
+                    ws.insertarsocio(socio.nombre, socio.direccion);
                     break;
                 case "Eliminar":
-                    ServiceReference1.WSSoapClient ws2 = new ServiceReference1.WSSoapClient();
                     int intsocio1 = socio.idsocio;
-                    ws2.eliminarsocio(intsocio1);
+                    ws.eliminarsocio(intsocio1);
                     break;
             }
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Usuario(libro libro)
+        {
+            DataSet dts = new DataSet();
+            int intlibro = libro.idlibro;
+            dts = ws.consultalibro(intlibro);
+            return View();           
         }
     }
 }
